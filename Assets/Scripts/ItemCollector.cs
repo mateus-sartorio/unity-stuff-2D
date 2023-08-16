@@ -7,6 +7,7 @@ public class ItemCollector : MonoBehaviour
 {
     private int melons = 0;
     [SerializeField] private Text countText;
+    [SerializeField] private AudioSource collectSound;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,6 +16,7 @@ public class ItemCollector : MonoBehaviour
             Destroy(collision.gameObject);
             melons++;
             countText.text = $"Melons: {melons}";
+            collectSound.Play();
         }
     }
 }
